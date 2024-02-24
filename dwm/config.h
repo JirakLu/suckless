@@ -1,5 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
+/* constants */
+#define BROWSER "brave" 
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -64,7 +67,13 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ Mod1Mask,                     XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,			XK_BackSpace,	spawn,		{.v = (const char*[]){ "sysact", NULL } } },
+	{ MODKEY,			XK_b,		spawn,		{.v = (const char*[]){ BROWSER, NULL } } },
+	{ MODKEY,			XK_p,		spawn,		{.v = (const char*[]){ "passmenu", NULL } } },
+	{ 0,							XK_Print,						spawn,			SHCMD ("flameshot gui --clipboard")},
+	{ MODKEY,						XK_Print,						spawn,			SHCMD ("flameshot full -p $HOME/Screenshots/")},
+	{ MODKEY|ControlMask,			XK_Print,						spawn,			SHCMD ("flameshot gui -p $HOME/Screenshots/")},
+	{ MODKEY|ShiftMask,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
