@@ -6,6 +6,7 @@
 #define TERMINAL "warp-terminal" 
 
 /* appearance */
+static const unsigned int refresh_rate = 144;    /* Matches dwm's mouse event processing to your monitor's refresh rate for smoother window interactions. */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 1;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
