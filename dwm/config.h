@@ -41,7 +41,7 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/*  classinstance           title           tags mask           isfloating          isterminal          noswallow           monitor */
+	/*  class           instance  title           tags mask  isfloating  isterminal   noswallow monitor */
 	{ "discord",        NULL,     NULL,           1 << 0,    0,          0,           0,        1 },
 	{ "Slack",          NULL,     NULL,           1 << 1,    0,          0,           0,        1 },
 	{ "dev.warp.Warp",  NULL,     NULL,           0,         0,          1,           0,        -1 },
@@ -80,7 +80,7 @@ static const char *termcmd[]  = { TERMINAL, NULL };
 #include <X11/XF86keysym.h>
 
 static const Key keys[] = {
-    /* modifier         key         function            argument */
+    /* modifier                     key             function        argument */
     { Mod1Mask,                     XK_space,       spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_Return,      spawn,          {.v = termcmd } },
     { MODKEY,                       XK_BackSpace,   spawn,          {.v = (const char*[]){ "sysact", NULL } } },
@@ -135,7 +135,7 @@ static const Key keys[] = {
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static const Button buttons[] = {
-	/* click                event mask      button          function        argument */
+    /* click                event mask      button          function        argument */
     { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
     { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
     { ClkWinTitle,          0,              Button2,        zoom,           {0} },
