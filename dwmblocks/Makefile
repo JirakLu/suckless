@@ -1,36 +1,31 @@
-PREFIX  := /usr/local
-CC      := cc
-CFLAGS  := -pedantic -Wall -Wno-deprecated-declarations -O3
-LDFLAGS := -lX11
+include config.mk
 
-# FreeBSD (uncomment)
-#LDFLAGS += -L/usr/local/lib -I/usr/local/include
-# # OpenBSD (uncomment)
-#LDFLAGS += -L/usr/X11R6/lib -I/usr/X11R6/include
+SRC = dwmblocks.c
+OBJ = $(SRC:.c=.o)
 
-all: options dwmblocks
+all: dwmblocks
 
-options:
-	@echo dwmblocks build options:
-	@echo "CFLAGS  = ${CFLAGS}"
-	@echo "LDFLAGS = ${LDFLAGS}"
-	@echo "CC      = ${CC}"
+.c.o:
+	$(CC) -c $(CFLAGS) $<
 
-dwmblocks: dwmblocks.c blocks.def.h blocks.h
-	${CC} -o dwmblocks dwmblocks.c ${CFLAGS} ${LDFLAGS}
+config.h:
+	cp config.def.h $@
 
-blocks.h:
-	cp blocks.def.h $@
+$(OBJ): config.h config.mk
+
+dwmblocks: dwmblocks.o
+	$(CC) -o $@ dwmblocks.o $(LDFLAGS)
 
 clean:
-	rm -f *.o *.gch dwmblocks
+	rm -f $(OBJ) dwmblocks
 
-install: dwmblocks
-	mkdir -p ${DESTDIR}${PREFIX}/bin
-	cp -f dwmblocks ${DESTDIR}${PREFIX}/bin
-	chmod 755 ${DESTDIR}${PREFIX}/bin/dwmblocks
+install: all
+	mkdir -p $(DESTDIR)$(PREFIX)/bin
+	cp -f dwmblocks $(DESTDIR)$(PREFIX)/bin
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/dwmblocks
+	# TODO: add man pages
 
 uninstall:
-	rm -f ${DESTDIR}${PREFIX}/bin/dwmblocks
+	rm -f $(DESTDIR)$(PREFIX)/bin/dwmblocks
 
-.PHONY: all options clean install uninstall
+.PHONY: all clean install uninstall
