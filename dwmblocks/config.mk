@@ -10,6 +10,7 @@ XINERAMAFLAGS = -DXINERAMA
 
 # includes and libs
 LIBS = -lX11
+INCS = 
 
 # Optional compiler optimisations may create smaller binaries and
 # faster code, but increases compile time.
@@ -17,7 +18,8 @@ LIBS = -lX11
 OPTIMISATIONS = -march=native -mtune=native -flto=auto -O3
 
 # flags
-CFLAGS = $(OPTIMISATIONS) -pedantic -Wall -Wno-unusded-function -Wno-deprecated-declarations
+CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700 -D_POSIX_C_SOURCE=200809L -DVERSION=\"$(VERSION)\" $(XINERAMAFLAGS)
+CFLAGS = $(OPTIMISATIONS) -pedantic -Wall -Wno-unusded-function -Wno-deprecated-declarations $(INCS) $(CPPFLAGS)
 
 LDFLAGS = $(LIBS)
 
