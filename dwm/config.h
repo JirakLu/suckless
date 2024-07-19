@@ -4,7 +4,7 @@
 /* constants */
 #define BROWSER "brave" 
 #define STATUSBAR "dwmblocks"
-#define TERMINAL "warp-terminal" 
+#define TERMINAL "alacritty" 
 #define EXPLORER "thunar"
 
 /* appearance */
@@ -45,7 +45,7 @@ static const Rule rules[] = {
 	/*  class           instance  title           tags mask  isfloating  isterminal   noswallow monitor */
 	{ "discord",        NULL,     NULL,           1 << 0,    0,          0,           0,        1 },
 	{ "Slack",          NULL,     NULL,           1 << 1,    0,          0,           0,        1 },
-	{ "dev.warp.Warp",  NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ "Alacritty",      NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,             NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
