@@ -1,11 +1,10 @@
 #!/bin/bash
 
-git clone https://github.com/JirakLu/suckless.git
-cd suckless | exit 1
+git clone https://github.com/JirakLu/suckless.git && cd suckless || exit 
 
-for dir in $(fint -maxdepth 1 -type d ! -name ".*")
+for dir in $(find -maxdepth 1 -type d ! -name ".*")
 do 
-	cd "$dir" | exit 1
+	cd "$dir" || exit
 	sudo make clean install
-	cd .. | exit 1
+	cd .. || exit 
 done
