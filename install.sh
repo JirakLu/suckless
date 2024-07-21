@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh -eou
 
 cd "$HOME" || exit
 git clone https://github.com/JirakLu/suckless.git && cd suckless || exit
