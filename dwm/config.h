@@ -5,7 +5,7 @@
 #define BROWSER "brave" 
 #define STATUSBAR "dwmblocks"
 #define TERMINAL "alacritty" 
-#define EXPLORER "thunar"
+#define EXPLORER "lfub"
 
 /* appearance */
 static const unsigned int refresh_rate      = 144; /* Matches dwm's mouse event processing to your monitor's refresh rate for smoother window interactions. */
@@ -78,7 +78,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *browsercmd[]  = { BROWSER, NULL };
-static const char *explorercmd[]  = { EXPLORER, NULL };
+static const char *explorercmd[]  = { TERMINAL, "-e", EXPLORER, NULL };
 
 #include <X11/XF86keysym.h>
 
@@ -90,7 +90,6 @@ static const Key keys[] = {
     { MODKEY,                       XK_e,           spawn,          {.v = explorercmd } },
     { MODKEY,                       XK_BackSpace,   spawn,          {.v = (const char*[]){ "sysact", NULL } } },
     { MODKEY,                       XK_p,           spawn,          {.v = (const char*[]){ "passmenu", NULL } } },
-    { MODKEY,                       XK_r,           spawn,          {.v = (const char*[]){ "dmenurecord", NULL } } },
     { 0,                            XK_Print,       spawn,          SHCMD ("flameshot gui --clipboard")},
     { MODKEY,                       XK_Print,       spawn,          SHCMD ("flameshot full -p $HOME/Pictures/Screenshots/")},
     { MODKEY|ControlMask,           XK_Print,       spawn,          SHCMD ("flameshot gui -p $HOME/Pictures/Screenshots/")},
