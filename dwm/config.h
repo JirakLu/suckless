@@ -90,6 +90,7 @@ static const Key keys[] = {
     { MODKEY,                       XK_e,           spawn,          {.v = explorercmd } },
     { MODKEY,                       XK_BackSpace,   spawn,          {.v = (const char*[]){ "sysact", NULL } } },
     { MODKEY,                       XK_p,           spawn,          {.v = (const char*[]){ "passmenu", NULL } } },
+    { MODKEY,                       XK_r,           spawn,          {.v = (const char*[]){ "dmenurecord", NULL } } },
     { 0,                            XK_Print,       spawn,          SHCMD ("flameshot gui --clipboard")},
     { MODKEY,                       XK_Print,       spawn,          SHCMD ("flameshot full -p $HOME/Pictures/Screenshots/")},
     { MODKEY|ControlMask,           XK_Print,       spawn,          SHCMD ("flameshot gui -p $HOME/Pictures/Screenshots/")},
