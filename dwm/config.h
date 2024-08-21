@@ -121,15 +121,16 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             XK_comma,       tagmon,         {.i = -1 } },
     { MODKEY|ShiftMask,             XK_period,      tagmon,         {.i = +1 } },
      /* Function keys */
-    { 0,    XF86XK_AudioMute,           spawn,  SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
-    { 0,    XF86XK_AudioRaiseVolume,    spawn,  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%- && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+; kill -44 $(pidof dwmblocks)") },
-    { 0,    XF86XK_AudioLowerVolume,    spawn,  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-; kill -44 $(pidof dwmblocks)") },
-    { 0,    XF86XK_AudioMicMute,        spawn,  SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
-    { 0,    XF86XK_AudioNext,           spawn,  SHCMD("playerctl next") },
-    { 0,    XF86XK_AudioPrev,           spawn,  SHCMD("playerctl prev") },
-    { 0,    XF86XK_AudioPlay,           spawn,  SHCMD("playerctl play-pause") },
-    { 0,    XF86XK_MonBrightnessUp,     spawn,  {.v = (const char*[]){ "xbacklight", "-inc", "15", NULL } } },
-    { 0,    XF86XK_MonBrightnessDown,   spawn,  {.v = (const char*[]){ "xbacklight", "-dec", "15", NULL } } },
+    { 0,  XF86XK_AudioMute,           spawn,  SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
+    { 0,  XF86XK_AudioRaiseVolume,    spawn,  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%- && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+; kill -44 $(pidof dwmblocks)") },
+    { 0,  XF86XK_AudioLowerVolume,    spawn,  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-; kill -44 $(pidof dwmblocks)") },
+    { 0,  XF86XK_AudioMicMute,        spawn,  SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
+    { 0,  XF86XK_AudioNext,           spawn,  SHCMD("playerctl next") },
+    { 0,  XF86XK_AudioPrev,           spawn,  SHCMD("playerctl prev") },
+    { 0,  XF86XK_AudioPlay,           spawn,  SHCMD("playerctl play-pause") },
+    { 0,  XF86XK_MonBrightnessUp,     spawn,  {.v = (const char*[]){ "xbacklight", "-inc", "15", NULL } } },
+    { 0,  XF86XK_MonBrightnessDown,   spawn,  {.v = (const char*[]){ "xbacklight", "-dec", "15", NULL } } },
+    { 0,  XF86XK_Sleep,               spawn,  {.v = (const char*[]){ "sysact", NULL } } },
     /* Tagkeys */
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
