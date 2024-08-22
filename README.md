@@ -1,4 +1,6 @@
-# My build of suckless software
+# Suckless 
+
+My build of suckless software I use.
 
 ### Installation
 
