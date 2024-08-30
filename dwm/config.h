@@ -79,12 +79,13 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *browsercmd[]  = { BROWSER, NULL };
 static const char *explorercmd[]  = { TERMINAL, "-e", EXPLORER, NULL };
+static const char *launchercmd[] = { "rofi", "-show", "drun", NULL };
 
 #include <X11/XF86keysym.h>
 
 static const Key keys[] = {
     /* modifier                     key             function        argument */
-    { Mod1Mask,                     XK_space,       spawn,          {.v = dmenucmd } },
+    { Mod1Mask,                     XK_space,       spawn,          {.v = launchercmd } },
     { MODKEY,                       XK_Return,      spawn,          {.v = termcmd } },
     { MODKEY,                       XK_b,           spawn,          {.v = browsercmd } },
     { MODKEY,                       XK_e,           spawn,          {.v = explorercmd } },
